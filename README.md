@@ -1,4 +1,93 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Fitness Tracker App
+
+A modern web application for tracking your workout routine. Built with Next.js, TypeScript, and Tailwind CSS.
+
+## How to Update Your Training Plan
+
+### 1. Locate the Training Plan File
+The training plan is stored in `src/app/page.tsx`. Look for the `workoutProgram` constant near the top of the file.
+
+### 2. Data Structure
+Your training plan should follow this structure:
+```typescript
+const workoutProgram = {
+  1: [  // Day 1
+    {
+      name: "Exercise Name",
+      setsReps: "3 sets of 12 reps",  // Format as shown in your Excel
+      recovery: "60 seconds",          // Recovery time between sets
+      group: "Shoulders"              // Exercise group (e.g., Shoulders, Chest, etc.)
+    },
+    // Add more exercises for Day 1
+  ],
+  2: [  // Day 2
+    // Day 2 exercises
+  ],
+  // Continue for all workout days (up to 6)
+};
+```
+
+### 3. Converting from Excel
+To convert your Excel workout plan:
+
+1. For each day (1-6):
+   - Create a new array inside the `workoutProgram` object
+   - Each exercise needs these fields:
+     - `name`: Exercise name from Excel
+     - `setsReps`: Sets and repetitions combined
+     - `recovery`: Recovery time
+     - `group`: Exercise group/category
+
+### 4. Example Format
+Here's how to format different types of exercises:
+
+```typescript
+// Single exercise example
+{
+  name: "Military Press",
+  setsReps: "3 sets of 12 reps",
+  recovery: "60 seconds",
+  group: "Shoulders"
+}
+
+// Super-set example
+{
+  name: "Bench Press",
+  setsReps: "4 sets of 10 reps",
+  recovery: "90 seconds",
+  group: "Chest"
+}
+```
+
+### 5. Steps to Update
+
+1. Open `src/app/page.tsx`
+2. Find the `workoutProgram` constant
+3. Replace the example data with your workout plan
+4. Save the file
+5. The app will automatically update with your new training plan
+
+### 6. Data Validation
+Make sure:
+- All exercise entries have the required fields
+- Days are numbered from 1 to 6
+- Recovery times are formatted as "X seconds" or "X minutes"
+- Exercise groups are consistent throughout
+
+## Running the App
+
+```bash
+npm run dev
+```
+
+Visit `http://localhost:3000` to view your workout plan.
+
+## Tips
+- Keep the formatting consistent
+- Double-check the data structure
+- Make sure all fields are strings
+- Include recovery times for proper rest periods
+- Group similar exercises together under the same exercise group
 
 ## Getting Started
 
